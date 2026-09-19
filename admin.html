@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord — ARTD Djibouti</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+  <header class="admin-topbar">
+    <div class="admin-topbar-inner">
+      <img src="assets/logo.png" alt="Logo de l'association" class="admin-logo">
+      <div>
+        <strong>Tableau de bord</strong>
+        <span>Association Rayonnement Touristique et Développement de Djibouti</span>
+      </div>
+      <div class="topbar-actions">
+        <a href="index.html" target="_blank" class="admin-btn ghost">Voir le site ↗</a>
+        <button class="admin-btn ghost" id="btnReset">Réinitialiser</button>
+        <span class="save-state" id="saveState"></span>
+      </div>
+    </div>
+  </header>
+
+  <div class="admin-layout">
+    <nav class="admin-side" aria-label="Sections d'administration">
+      <button class="side-link active" data-tab="textes">✍️ Textes du site</button>
+      <button class="side-link" data-tab="actualites">📰 Actualités</button>
+      <button class="side-link" data-tab="projets">📁 Projets</button>
+      <button class="side-link" data-tab="galerie">🖼️ Photos</button>
+      <button class="side-link" data-tab="videos">🎬 Vidéos</button>
+      <button class="side-link" data-tab="partenaires">🤝 Partenaires</button>
+      <button class="side-link" data-tab="contact">📞 Contact</button>
+      <button class="side-link" data-tab="sauvegarde">💾 Sauvegarde</button>
+    </nav>
+
+    <main class="admin-main">
+
+      <!-- ===== TEXTES ===== -->
+      <section class="admin-tab active" id="tab-textes">
+        <h2>Textes du site</h2>
+        <p class="hint">Modifiez les textes affichés sur la page d'accueil. Cliquez sur « Enregistrer » en bas de page.</p>
+
+        <h3>Section d'accueil (Hero)</h3>
+        <div class="admin-form">
+          <div class="f-group"><label>Titre principal</label><textarea rows="2" data-bind="hero.titre"></textarea></div>
+          <div class="f-group"><label>Slogan</label><textarea rows="2" data-bind="hero.slogan"></textarea></div>
+          <div class="f-row">
+            <div class="f-group"><label>Bouton 1</label><input type="text" data-bind="hero.btn1"></div>
+            <div class="f-group"><label>Bouton 2</label><input type="text" data-bind="hero.btn2"></div>
+          </div>
+        </div>
+
+        <h3>Qui sommes-nous ?</h3>
+        <div class="admin-form">
+          <div class="f-group"><label>Titre</label><input type="text" data-bind="quiSommesNous.titre"></div>
+          <div class="f-group"><label>Paragraphe 1</label><textarea rows="4" data-bind="quiSommesNous.texte1"></textarea></div>
+          <div class="f-group"><label>Paragraphe 2</label><textarea rows="4" data-bind="quiSommesNous.texte2"></textarea></div>
+          <div class="f-row">
+            <div class="f-group"><label>Statistique 1 — valeur</label><input type="text" data-bind="quiSommesNous.stat1.valeur"></div>
+            <div class="f-group"><label>Statistique 1 — libellé</label><input type="text" data-bind="quiSommesNous.stat1.libelle"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label>Statistique 2 — valeur</label><input type="text" data-bind="quiSommesNous.stat2.valeur"></div>
+            <div class="f-group"><label>Statistique 2 — libellé</label><input type="text" data-bind="quiSommesNous.stat2.libelle"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label>Statistique 3 — valeur</label><input type="text" data-bind="quiSommesNous.stat3.valeur"></div>
+            <div class="f-group"><label>Statistique 3 — libellé</label><input type="text" data-bind="quiSommesNous.stat3.libelle"></div>
+          </div>
+        </div>
+        <button class="admin-btn primary save-btn" data-savetab="textes">💾 Enregistrer les textes</button>
+      </section>
+
+      <!-- ===== ACTUALITES ===== -->
+      <section class="admin-tab" id="tab-actualites">
+        <h2>Actualités</h2>
+        <p class="hint">Ajoutez, modifiez ou supprimez les articles. Astuce : pour une photo, placez le fichier dans <code>assets/img/</code> et indiquez <code>assets/img/mon-image.jpg</code>.</p>
+        <div id="actualitesList" class="items-list"></div>
+        <button class="admin-btn primary" id="btnAddActu">➕ Ajouter une actualité</button>
+        <button class="admin-btn primary save-btn" data-save="actualites">💾 Enregistrer les actualités</button>
+      </section>
+
+      <!-- ===== PROJETS ===== -->
+      <section class="admin-tab" id="tab-projets">
+        <h2>Projets</h2>
+        <p class="hint">Renseignez la photo, le titre, la description, la date, le lieu, les partenaires et l'état de chaque projet.</p>
+        <div id="projetsList" class="items-list"></div>
+        <button class="admin-btn primary" id="btnAddProjet">➕ Ajouter un projet</button>
+        <button class="admin-btn primary save-btn" data-save="projets">💾 Enregistrer les projets</button>
+      </section>
+
+      <!-- ===== GALERIE ===== -->
+      <section class="admin-tab" id="tab-galerie">
+        <h2>Photos</h2>
+        <p class="hint">Gérez les photos de la galerie. Catégories : <code>tourisme</code>, <code>culture</code>, <code>patrimoine</code>, <code>evenements</code>, <code>activites</code>, <code>paysages</code>.</p>
+        <div id="galerieList" class="items-list"></div>
+        <button class="admin-btn primary" id="btnAddPhoto">➕ Ajouter une photo</button>
+        <button class="admin-btn primary save-btn" data-save="galerie">💾 Enregistrer la galerie</button>
+      </section>
+
+      <!-- ===== VIDEOS ===== -->
+      <section class="admin-tab" id="tab-videos">
+        <h2>Vidéos</h2>
+        <p class="hint">Ajoutez les titres et liens (YouTube, etc.) des vidéos de l'association.</p>
+        <div id="videosList" class="items-list"></div>
+        <button class="admin-btn primary" id="btnAddVideo">➕ Ajouter une vidéo</button>
+        <button class="admin-btn primary save-btn" data-save="videos">💾 Enregistrer les vidéos</button>
+      </section>
+
+      <!-- ===== PARTENAIRES ===== -->
+      <section class="admin-tab" id="tab-partenaires">
+        <h2>Partenaires</h2>
+        <p class="hint">Nom du partenaire et chemin du logo (optionnel, ex. <code>assets/img/logo-partenaire.png</code>).</p>
+        <div id="partenairesList" class="items-list"></div>
+        <button class="admin-btn primary" id="btnAddPartenaire">➕ Ajouter un partenaire</button>
+        <button class="admin-btn primary save-btn" data-save="partenaires">💾 Enregistrer les partenaires</button>
+      </section>
+
+      <!-- ===== CONTACT ===== -->
+      <section class="admin-tab" id="tab-contact">
+        <h2>Informations de contact</h2>
+        <p class="hint">Ces informations s'affichent dans la page Contact et dans le pied de page.</p>
+        <div class="admin-form">
+          <div class="f-group"><label>Nom complet de l'association</label><input type="text" data-bind="contact.nom"></div>
+          <div class="f-row">
+            <div class="f-group"><label>Email</label><input type="text" data-bind="contact.email"></div>
+            <div class="f-group"><label>Téléphone 1</label><input type="text" data-bind="contact.tel1"></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label>Téléphone 2</label><input type="text" data-bind="contact.tel2"></div>
+            <div class="f-group"><label>Horaires</label><input type="text" data-bind="contact.horaires"></div>
+          </div>
+          <div class="f-group"><label>Adresse du siège</label><input type="text" data-bind="contact.adresse"></div>
+          <h3 style="margin:18px 0 8px">Réseaux sociaux (liens)</h3>
+          <div class="f-row">
+            <div class="f-group"><label>Facebook</label><input type="text" data-bind="contact.facebook" placeholder="https://facebook.com/..."></div>
+            <div class="f-group"><label>YouTube</label><input type="text" data-bind="contact.youtube" placeholder="https://youtube.com/..."></div>
+          </div>
+          <div class="f-row">
+            <div class="f-group"><label>Instagram</label><input type="text" data-bind="contact.instagram" placeholder="https://instagram.com/..."></div>
+            <div class="f-group"><label>TikTok</label><input type="text" data-bind="contact.tiktok" placeholder="https://tiktok.com/..."></div>
+          </div>
+          <div class="f-group"><label>X (Twitter)</label><input type="text" data-bind="contact.x" placeholder="https://x.com/..."></div>
+        </div>
+        <button class="admin-btn primary save-btn" data-savetab="contact">💾 Enregistrer le contact</button>
+      </section>
+
+      <!-- ===== SAUVEGARDE ===== -->
+      <section class="admin-tab" id="tab-sauvegarde">
+        <h2>Sauvegarde & restauration</h2>
+        <p class="hint">Exportez vos contenus pour les conserver ou les transférer, puis importez-les sur un autre ordinateur ou après une mise en ligne.</p>
+        <div class="sauvegarde-actions">
+          <button class="admin-btn primary" id="btnExport">⬇️ Exporter les contenus (JSON)</button>
+          <label class="admin-btn ghost file-label">⬆️ Importer un fichier JSON
+            <input type="file" id="fileImport" accept=".json" hidden>
+          </label>
+        </div>
+        <div class="warning">
+          <strong>Important :</strong> les modifications sont enregistrées dans ce navigateur. Pensez à exporter régulièrement vos contenus.
+          Pour publier le site avec vos contenus, remplacez le fichier <code>js/data.js</code> par le fichier exporté (demandez de l'aide technique si besoin).
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

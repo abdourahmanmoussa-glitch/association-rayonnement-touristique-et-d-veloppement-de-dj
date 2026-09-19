@@ -1,0 +1,86 @@
+/* =========================================================
+   ARTD Djibouti — Tableau de bord administrateur
+   ========================================================= */
+:root{
+  --blue-deep:#08395a;--blue:#0b4f7a;--green:#2e8b57;--gold:#f2b705;
+  --ink:#182833;--muted:#5b6b77;--line:#e3eaf0;--bg:#f5f9fb;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter','Segoe UI',system-ui,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;font-size:15px}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;color:var(--blue-deep)}
+h2{margin-bottom:6px;font-size:1.5rem}
+h3{font-size:1.05rem;margin-top:22px}
+
+/* Topbar */
+.admin-topbar{background:var(--blue-deep);color:#fff;padding:12px 0;position:sticky;top:0;z-index:50}
+.admin-topbar-inner{width:min(1400px,95%);margin:0 auto;display:flex;align-items:center;gap:14px}
+.admin-logo{width:46px;height:46px;object-fit:contain;background:#fff;border-radius:10px;padding:4px}
+.admin-topbar strong{display:block;font-size:.98rem}
+.admin-topbar span{font-size:.76rem;opacity:.8}
+.topbar-actions{margin-left:auto;display:flex;gap:10px;align-items:center}
+.save-state{font-size:.78rem;color:var(--gold);min-width:80px;text-align:right}
+
+/* Layout */
+.admin-layout{width:min(1400px,95%);margin:26px auto;display:grid;grid-template-columns:250px 1fr;gap:24px;align-items:start}
+.admin-side{background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;display:flex;flex-direction:column;gap:4px;position:sticky;top:84px}
+.side-link{background:none;border:0;text-align:left;padding:12px 14px;border-radius:10px;font-size:.9rem;font-weight:500;color:var(--muted);cursor:pointer;font-family:inherit;transition:background .2s,color .2s}
+.side-link:hover{background:var(--bg);color:var(--blue)}
+.side-link.active{background:var(--blue);color:#fff;font-weight:600}
+
+.admin-main{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 32px;min-height:70vh}
+.admin-tab{display:none}
+.admin-tab.active{display:block;animation:fade .35s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.hint{color:var(--muted);font-size:.88rem;margin-bottom:20px}
+.hint code{background:var(--bg);padding:2px 7px;border-radius:6px;font-size:.82rem;color:var(--blue)}
+
+/* Formulaires */
+.admin-form{margin-top:10px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.f-group{margin-bottom:14px}
+.f-group label{display:block;font-size:.8rem;font-weight:600;color:var(--blue-deep);margin-bottom:5px}
+.f-group input,.f-group textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-family:inherit;font-size:.9rem;background:#fbfdfe;transition:border-color .2s}
+.f-group input:focus,.f-group textarea:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(11,79,122,.1)}
+
+/* Listes d'éléments (actualités, projets, etc.) */
+.items-list{display:flex;flex-direction:column;gap:14px;margin-bottom:18px}
+.item-card{border:1.5px solid var(--line);border-radius:14px;padding:18px;background:#fbfdfe}
+.item-head{display:flex;align-items:center;gap:14px;margin-bottom:12px}
+.item-head img{width:74px;height:54px;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--bg)}
+.item-head .ph{width:74px;height:54px;border-radius:8px;background:linear-gradient(135deg,#eaf3f9,#e9f6ef);display:flex;align-items:center;justify-content:center;font-size:1.4rem}
+.item-head .head-txt{flex:1;font-weight:600;font-size:.92rem;color:var(--blue-deep)}
+.item-del{background:none;border:0;color:#c0392b;font-size:1.35rem;cursor:pointer;padding:4px 8px;border-radius:8px;transition:background .2s}
+.item-del:hover{background:#fdeceb}
+.item-fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.item-fields .wide{grid-column:1 / -1}
+.item-fields input,.item-fields textarea,.item-fields select{width:100%;padding:9px 11px;border:1.5px solid var(--line);border-radius:9px;font-family:inherit;font-size:.86rem;background:#fff}
+.item-fields textarea{resize:vertical}
+
+/* Boutons */
+.admin-btn{display:inline-flex;align-items:center;gap:8px;padding:11px 22px;border-radius:999px;font-weight:600;font-size:.88rem;border:0;cursor:pointer;font-family:inherit;transition:all .25s;margin-right:10px;margin-top:10px}
+.admin-btn.primary{background:var(--blue);color:#fff}
+.admin-btn.primary:hover{background:var(--blue-deep)}
+.admin-btn.ghost{background:#fff;color:var(--blue);border:1.5px solid var(--line)}
+.admin-btn.ghost:hover{border-color:var(--blue)}
+.file-label{display:inline-flex;cursor:pointer}
+.save-btn{background:var(--green);color:#fff}
+.save-btn:hover{background:#22714a}
+
+/* Sauvegarde */
+.sauvegarde-actions{margin:14px 0 22px}
+.warning{background:#fdf5d8;border:1px solid #f0dfa0;border-radius:12px;padding:16px 18px;font-size:.86rem;color:#6b5a10}
+.warning code{background:#fff;padding:1px 6px;border-radius:5px}
+
+/* Toast */
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,80px);background:var(--green);color:#fff;padding:13px 28px;border-radius:999px;font-weight:600;font-size:.9rem;box-shadow:0 12px 30px rgba(0,0,0,.25);transition:transform .35s ease;z-index:100}
+.toast.show{transform:translate(-50%,0)}
+
+@media (max-width:900px){
+  .admin-layout{grid-template-columns:1fr}
+  .admin-side{flex-direction:row;overflow-x:auto;position:static}
+  .side-link{white-space:nowrap}
+  .admin-main{padding:22px 18px}
+  .f-row,.item-fields{grid-template-columns:1fr}
+  .admin-topbar span{display:none}
+  .save-state{display:none}
+}

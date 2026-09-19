@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="sky11" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a2c5e"/><stop offset="1" stop-color="#c76b8a"/>
+    </linearGradient><linearGradient id="wat11" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8a4a6e"/><stop offset="1" stop-color="#6e3a56"/>
+    </linearGradient><radialGradient id="sunG">
+      <stop offset="0" stop-color="#F5C242" stop-opacity="0.95"/>
+      <stop offset="0.55" stop-color="#F5C242" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#F5C242" stop-opacity="0"/>
+    </radialGradient></defs>
+<rect width="1200" height="800" fill="url(#sky11)"/>
+<polygon points="0,433 140,293 280,413 430,273 580,423 720,283 880,403 1020,303 1200,413 1200,800 0,800" fill="#3a1f4d" opacity="0.9"/><path d="M0 543 Q 240.0 443 540.0 503 T 1200 473 L1200 800 L0 800 Z" fill="#6b3a5c"/><path d="M0 663 Q 240.0 563 540.0 623 T 1200 593 L1200 800 L0 800 Z" fill="#8a4a6e"/><circle cx="864" cy="240" r="143.0" fill="url(#sunG)"/><circle cx="864" cy="240" r="55" fill="#F5C242"/>
+</svg>

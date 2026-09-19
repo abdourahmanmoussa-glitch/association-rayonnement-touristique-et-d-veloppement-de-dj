@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="sky14" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b3d62"/><stop offset="1" stop-color="#5db8d8"/>
+    </linearGradient><linearGradient id="wat14" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0e6ba8"/><stop offset="1" stop-color="#0a4f80"/>
+    </linearGradient><radialGradient id="sunG">
+      <stop offset="0" stop-color="#F5C242" stop-opacity="0.95"/>
+      <stop offset="0.55" stop-color="#F5C242" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#F5C242" stop-opacity="0"/>
+    </radialGradient></defs>
+<rect width="1200" height="800" fill="url(#sky14)"/>
+<polygon points="0,433 120,353 260,423 420,333 600,413 800,323 980,403 1150,343 1200,423 1200,463 0,463" fill="#0a2f4e" opacity="1"/><polygon points="0,473 180,403 380,483 560,383 760,473 960,393 1200,463 1200,493 0,493" fill="#14608a" opacity="0.9"/><rect x="0" y="493" width="1200" height="307" fill="url(#wat14)"/><path d="M0 553 Q 300.0 545 600.0 553 T 1200 553" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.50"/><path d="M0 575 Q 300.0 568 600.0 575 T 1200 575" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.44"/><path d="M0 597 Q 300.0 591 600.0 597 T 1200 597" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.38"/><path d="M0 619 Q 300.0 614 600.0 619 T 1200 619" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.32"/><path d="M0 641 Q 300.0 637 600.0 641 T 1200 641" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.26"/><path d="M0 663 Q 300.0 660 600.0 663 T 1200 663" fill="none" stroke="#ffffff" stroke-width="2" opacity="0.20"/><circle cx="864" cy="240" r="143.0" fill="url(#sunG)"/><circle cx="864" cy="240" r="55" fill="#F5C242"/>
+</svg>
